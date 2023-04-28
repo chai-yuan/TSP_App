@@ -3,6 +3,14 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# image file && tsp file
+*.tsp
+*.svg
+*.png
+*.jpg
+*.bmp
+*.jepg
+
 # C extensions
 *.so
 
