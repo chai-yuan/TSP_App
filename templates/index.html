@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSP Art</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="left-pane">
+
+                <h2>上传图片</h2>
+
+                <form id="image-post">
+                    <input type="file" id="imageUpload" name="imageUpload">
+                </form>
+
+                <h2>算法配置选项</h2>
+
+                <form id="image-settings">
+                    <label>散列图生成参数</label>
+
+                    <label for="image-size">生成点数量</label>
+                    <input type="number" id="point_num" name="point_num" min="1" value="1024" placeholder="输入生成点数量">
+
+                    <label for="brightness">迭代求解次数</label>
+                    <input type="range" id="iterative_times" name="iterative_times" min="0" max="50" step="1"
+                        value="20">
+
+                    <label for="threshold">灰度阈值</label>
+                    <input type="range" id="threshold" name="threshold" min="0" max="255" step="1" value="240">
+
+                </form>
+
+                <form id="TSP-Algorithm-settings">
+                    <label>TSP算法选择</label>
+
+                    <label for="algorithm">算法选择</label>
+                    <select id="algorithm" name="algorithm">
+                        <option value="NearestNeighborSolver">Nearest Neighbor算法(python 实现,O(n^2))</option>
+                        <option value="NearestInsertionSolver">Nearest Insertion算法(python 实现,O(n^3))</option>
+                        <option value="FarthestInsertionSolver">Farthest Insertion算法(python 实现,O(n^3))</option>
+                        <option value="2_OptSolver">2-Opt算法(python 实现,O(n^2*m))</option>
+                        <option value="ChristofidesSolver">Christofides算法(python 实现)</option>
+                        <option value="LKH">LKH算法(c 实现)</option>
+                        <option value="LKH3">LKH3算法(c 实现)</option>
+                    </select>
+
+                    <div id="algorithm-settings">
+
+                    </div>
+
+                </form>
+
+                <button id="submitBtn">一键生成</button>
+            </div>
+            <div class="right-pane">
+                <h2>图片展示</h2>
+                <div class="image-display">
+                    <img src="{{ image_url }}" id="image-preview">
+                </div>
+            </div>
+
+
+            <div id="loader-wrapper">
+                <div id="loader"></div>
+            </div>
+
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

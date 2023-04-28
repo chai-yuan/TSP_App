@@ -1,0 +1,177 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100vh;
+}
+
+.left-pane {
+    background-color: #f0f0f0;
+    padding: 20px;
+    width: 30%;
+    box-sizing: border-box;
+}
+
+.right-pane {
+    background-color: #ffffff;
+    padding: 20px;
+    width: 70%;
+    box-sizing: border-box;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(173, 173, 173);
+    padding: 24px;
+    margin-bottom: 18px;
+}
+
+label {
+    margin-top: 10px;
+}
+
+input[type=range] {
+    width: 100%;
+    margin-top: 10px;
+}
+
+#submitBtn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #28a745;
+    /* 修改为深绿色 */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#submitBtn:hover {
+    background-color: #218838;
+    /* 修改为深绿色的阴影 */
+}
+
+#submitBtn:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
+    /* 修改为深绿色的阴影 */
+}
+
+
+.image-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+input[type=text],
+input[type=number],
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=text]:focus,
+input[type=number]:focus,
+select:focus {
+    border: 1px solid #4CAF50;
+}
+
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.5);
+    /* 半透明的黑色 */
+    display: none;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+}
+
+#loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #218838;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+#imageUpload {
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #28a745;
+    /* 修改为深绿色 */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+*/ #imageUpload:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
+    /* 修改为深绿色的阴影 */
+}
+
+#imageUpload::file-selector-button {
+    border-radius: 4px;
+    border: none;
+    background-color: #28a745;
+    /* 修改为深绿色 */
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#imageUpload::file-selector-button:hover {
+    background-color: #218838;
+    /* 修改为深绿色的阴影 */
+}
