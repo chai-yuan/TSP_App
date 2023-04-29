@@ -31,7 +31,7 @@ class TwoOptSolver(Solver):
     @staticmethod
     def setting() -> str:
         return '<label>算法迭代次数</label> \
-                <input type="number" id="algorithm_iter" name="algorithm_iter" min="1" value="10000">'
+                <input type="number" id="algorithm_iter" name="algorithm_iter" min="1" value="20000">'
 
     @staticmethod
     def calculate_distance(route: list, problem: tsplib95.models.StandardProblem):
