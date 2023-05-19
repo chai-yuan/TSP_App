@@ -1,0 +1,5 @@
+flask
+tsplib95
+numpy
+elkai
+tqdm
