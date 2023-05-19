@@ -19,6 +19,9 @@ def GenerateImage(problem, tour: list, imagePath="../static/tmp.svg"):
 
     x_list = [coord[0] for node_id, coord in sorted_nodes]
     y_list = [coord[1] for node_id, coord in sorted_nodes]
+    if (sorted_nodes[0] != sorted_nodes[-1]):
+        x_list.append(x_list[0])
+        y_list.append(y_list[0])
 
     fig, ax = plt.subplots()
     ax.set_aspect('equal')

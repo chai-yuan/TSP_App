@@ -12,16 +12,13 @@ class LKHSolver(Solver):
     @staticmethod
     def solve(problem: tsplib95.models.StandardProblem,  describe: dict = {}) -> list:
         algorithm_iter = int(describe["algorithm_iter"])
-        nodes = list(problem.get_nodes())
-        graph = numpy.zeros((len(nodes), len(nodes)), dtype=int)
+        nodes = problem.node_coords.items()
 
-        for i in nodes:
-            for j in nodes:
-                if i != j:
-                    graph[i-1, j-1] = problem.get_weight(i, j)
+        graph = {k: v for k, v in nodes}
 
-        solution = elkai.solve_int_matrix(graph, algorithm_iter)
-        solution = [i+1 for i in solution]
+        cities = elkai.Coordinates2D(graph)
+
+        solution = cities.solve_tsp(algorithm_iter)
 
         return solution
 

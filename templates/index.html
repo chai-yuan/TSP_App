@@ -13,7 +13,7 @@
         <div class="container">
             <div class="left-pane">
 
-                <h2>上传图片</h2>
+                <h2>上传文件(图片 或 TSP文件)</h2>
 
                 <form id="image-post">
                     <input type="file" id="imageUpload" name="imageUpload">
@@ -45,8 +45,10 @@
                         <option value="NearestInsertionSolver">Nearest Insertion算法(python 实现,O(n^3))</option>
                         <option value="FarthestInsertionSolver">Farthest Insertion算法(python 实现,O(n^3))</option>
                         <option value="2_OptSolver">2-Opt算法(python 实现,O(n^2*m))</option>
-                        <option value="ChristofidesSolver">Christofides算法(python 实现)</option>
-                        <option value="LKHSolver">LKH算法(c 实现)</option>
+                        <option value="ChristofidesSolver">Christofides算法(python 实现,O(n^3))</option>
+                        <option value="LKHSolver">LKH算法(c 实现,O(n^2*m))</option>
+                        <option value="SASolver">模拟退火算法(python 实现,O(n*m))</option>
+                        <option value="TestSolver">测试用算法</option>
                     </select>
 
                     <div id="algorithm-settings">

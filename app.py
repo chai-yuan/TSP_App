@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request
 import os
 import time
 import tsplib95
@@ -31,14 +31,18 @@ def handle_solve():
     # 保存上传图片
     file = request.files['file']
     input_image = os.path.join('./static/', file.filename)
-    tsp_file = "./static/stipple.tsp"
     output_filename = time.strftime(
         '%m_%d_%H_%M_%S', time.localtime()) + ".svg"
     output_image = os.path.join('./static/', output_filename)
     file.save(input_image)
     # 执行算法流程
-    GenerateTSPFile(input_image, tsp_file, point_num=point_num,
-                    iter_num=iterative_times, threshold=threshold)
+    tsp_file = "./static/stipple.tsp"
+    if (os.path.splitext(file.filename)[1] == '.tsp'):
+        tsp_file = input_image
+    else:
+        GenerateTSPFile(input_image, tsp_file, point_num=point_num,
+                        iter_num=iterative_times, threshold=threshold)
+
     problem = tsplib95.load(tsp_file)
     tour = TSP_Solver[algorithm].solve(problem, request.form.to_dict())
     GenerateImage(problem=problem, tour=tour, imagePath=output_image)

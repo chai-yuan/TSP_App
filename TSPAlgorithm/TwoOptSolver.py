@@ -16,16 +16,14 @@ class TwoOptSolver(Solver):
         nodes = list(problem.get_nodes())
         random.shuffle(nodes)
 
-        best = nodes
         for _ in tqdm.trange(algorithm_iter):
             i = random.randint(1, len(nodes) - 3)
             j = random.randint(i+2, len(nodes)-1)
             newRoute = nodes[:]
             newRoute[i:j] = nodes[j - 1:i - 1:-1]
-            if TwoOptSolver.calculate_distance(newRoute, problem) < TwoOptSolver.calculate_distance(best, problem):
-                best = newRoute
+            if TwoOptSolver.calculate_distance(newRoute, problem) < TwoOptSolver.calculate_distance(nodes, problem):
+                nodes = newRoute
 
-            nodes = best
         return nodes
 
     @staticmethod
@@ -36,6 +34,6 @@ class TwoOptSolver(Solver):
     @staticmethod
     def calculate_distance(route: list, problem: tsplib95.models.StandardProblem):
         distance = 0
-        for i in range(len(route) - 1):
+        for i in range(len(route)-1):
             distance += problem.get_weight(route[i], route[i+1])
-        return distance + problem.get_weight(route[-1], route[0])
+        return distance
