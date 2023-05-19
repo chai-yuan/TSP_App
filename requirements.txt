@@ -3,3 +3,6 @@ tsplib95
 numpy
 elkai
 tqdm
+matplotlib
+imageio
+scipy
